@@ -189,6 +189,7 @@ const Editor: FC<EditorProps> = ({subredditId}) => {
                     // @ts-ignore
                     _titleRef.current = e
                 }}
+                {...rest}
                 placeholder='Title' 
                 className='w-full resize-none appearance-none overflow-hidden bg-transparent text-5xl font-bold focus:outline-none'
             />
