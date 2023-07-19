@@ -10,9 +10,7 @@ import { Users } from 'lucide-react'
 import debouce from 'lodash.debounce'
 import { useOnClickOutside } from '@/hooks/use-on-click-outside'
 
-interface SearchBarProps {
-  
-}
+interface SearchBarProps {}
 
 const SearchBar: FC<SearchBarProps> = ({}) => {
   const router = useRouter()
@@ -53,7 +51,8 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
 
   return (
     <Command ref={commandRef} className='relative rounded-lg border max-w-lg z-50 overflow-visible'>
-      <CommandInput 
+      <CommandInput
+        isLoading={isFetching}
         value={input}
         onValueChange={(text) => {
           setInput(text)
