@@ -45,12 +45,14 @@ const UserAccountNav: FC<UserAccountNavProps> = ({user}: UserAccountNavProps) =>
 
         <DropdownMenuSeparator />
         
-        <DropdownMenuItem onSelect={(e) => {
+        <DropdownMenuItem 
+          onSelect={(e) => {
             e.preventDefault()
             signOut({
                 callbackUrl: `${window.location.origin}/sign-in`
             })
-        }} className='cursor-pointer'>
+          }}
+        >
             Sign Out
         </DropdownMenuItem>
       </DropdownMenuContent>
