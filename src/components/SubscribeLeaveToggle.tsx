@@ -22,7 +22,7 @@ const SubscribeLeaveToggle: FC<SubscribeLeaveToggleProps> = ({isSubscribed, subr
     const {mutate: subscribe, isLoading: isSubLoading} = useMutation({
         mutationFn: async () => {
             const payload: SubscribeToSubredditPayload = {
-                name: subredditId,
+                subredditId: subredditId,
             }
 
             const { data } = await axios.post('/api/subreddit/subscribe', payload)
@@ -57,7 +57,7 @@ const SubscribeLeaveToggle: FC<SubscribeLeaveToggleProps> = ({isSubscribed, subr
     const {mutate: unsubscribe, isLoading: isUnsubLoading} = useMutation({
         mutationFn: async () => {
             const payload: SubscribeToSubredditPayload = {
-                name: subredditId,
+                subredditId: subredditId,
             }
 
             const { data } = await axios.post('/api/subreddit/unsubscribe', payload)
@@ -90,8 +90,8 @@ const SubscribeLeaveToggle: FC<SubscribeLeaveToggleProps> = ({isSubscribed, subr
     })
 
   return isSubscribed 
-  ? (<Button onClick={() => unsubscribe} isLoading={isUnsubLoading} className='w-full mt-1 mb-4'>Leave Community</Button>) 
-  : (<Button onClick={() => subscribe} isLoading={isSubLoading} className='w-full mt-1 mb-4'>Join to post</Button>)
+    ? (<Button onClick={() => unsubscribe()} isLoading={isUnsubLoading} className='w-full mt-1 mb-4'>Leave Community</Button>) 
+    : (<Button onClick={() => subscribe()} isLoading={isSubLoading} className='w-full mt-1 mb-4'>Join to post</Button>)
 }
 
 export default SubscribeLeaveToggle
